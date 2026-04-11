@@ -1,16 +1,16 @@
-import articles from "@/lib/articles";
+import articles from "@/lib/dummy-articles";
 import Link from "next/link";
 
 export default function News() {
     return (
         <main>
-            <h1>News</h1>
-            <p>This is the news page.</p>
-            <ul>
+            <h1>News Page</h1>
+            <ul className="news-list">
                 {articles.map((article) => (
                     <li key={article.id}>
-                        <Link href={`/news/${article.id}`}>
-                            {article.title}
+                        <Link href={`/news/${article.slug}`}>
+                            <img src={`/images/news/${article.image}`} alt={article.title} />
+                            <span>{article.title}</span>
                         </Link>
                     </li>
                 ))}

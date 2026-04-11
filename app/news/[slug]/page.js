@@ -1,15 +1,17 @@
-import articles from "@/lib/articles";
+import articles from "@/lib/dummy-articles";
 
 export default function NewsArticle({ params }) {
     const { slug } = params;
-    const article = articles.find((article) => article.id === parseInt(slug));
+    const article = articles.find((article) => article.slug === slug);
 
     return (
-        <main>
-            <article>
+        <article className="news-article">
+            <header>
+                <img src={`/images/news/${article.image}`} alt={article.title} />
                 <h1>{article.title}</h1>
-                <p>{article.content}</p>
-            </article>
-        </main>
+                <time dateTime={article.date}>{article.date}</time>
+            </header>
+            <p>{article.content}</p>
+        </article>
     )
 }

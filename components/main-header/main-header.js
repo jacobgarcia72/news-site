@@ -1,14 +1,18 @@
-import Image from "next/image";
-import Link from "next/link";
-import logoImg from '@/assets/logo.jpg';
+import Link from 'next/link';
 
 export default function MainHeader() {
-    return (
-        <header>
-            <Link href="/">
-                <Image src={logoImg} alt="Logo" width={50} height={50} priority />
-            </Link>
+  return (
+    <header id="main-header">
+      <div id="logo">
+        <Link href="/">NextNews</Link>
+      </div>
+      <nav>
+        <ul>
+          <li>
             <Link href="/news">News</Link>
-        </header>
-    )
+          </li>
+        </ul>
+      </nav>
+    </header>
+  );
 }
