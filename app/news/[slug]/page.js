@@ -1,8 +1,11 @@
 import articles from "@/lib/dummy-articles";
+import { notFound } from "next/navigation";
 
 export default function NewsArticle({ params }) {
     const { slug } = params;
     const article = articles.find((article) => article.slug === slug);
+
+    if(!article) notFound();
 
     return (
         <article className="news-article">
