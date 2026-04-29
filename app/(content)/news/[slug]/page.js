@@ -1,10 +1,10 @@
-import articles from "@/lib/dummy-articles";
+import { getNewsItem } from "@/lib/news";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
 export default function NewsArticle({ params }) {
     const { slug } = params;
-    const article = articles.find((article) => article.slug === slug);
+    const article = getNewsItem(slug);
 
     if(!article) notFound();
 
